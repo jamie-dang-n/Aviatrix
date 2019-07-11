@@ -17,7 +17,7 @@ func gauges(myPlane : Aviatrix) {
     print("| Fuel:      | \(myPlane.fuelLevel) gallons")
     print("| Max Fuel:  | \(myPlane.maxFuel) gallons")
     print("| MPG:       | \(myPlane.milesPerGallon)")
-//    print("| Fuel Bill: | \(myPlane.fuelCost)")
+    print("| Fuel Bill: | \(myPlane.fuelCost)")
 }
 
 //this function asks where to fly to
@@ -59,21 +59,21 @@ func refuel(myPlane : Aviatrix) {
     
     print("Refueling...")
     print("⛽ Here in \(myPlane.currentLocation), jet fuel costs $\(data[myPlane.currentLocation]!)")
-    print("⛽ You refueled \(myPlane.refuel()) gallons totaling $\(myPlane.fuelCost)")
+    print("⛽ You refueled \(myPlane.gallonsRefilled()) gallons totaling $\(myPlane.fuelCost)")
 }
 
 func fuelCheck(myPlane : Aviatrix, destination : String) -> Bool {
-//    let distanceToTravel =  Double(myPlane.distanceTo(target : destination))
-//    if myPlane.fuelLevel < distanceToTravel {
-//        print(" ")
-//        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
-//        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.location)!")
-//        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
-//
-//        return false
-//    } else {
-//        return true
-//    }
+    let distanceToTravel =  Double(myPlane.distanceTo(target : destination , current: myPlane.currentLocation))
+    if myPlane.fuelLevel < distanceToTravel {
+        print(" ")
+        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
+        print("Oh no! You've run out of fuel and crashed on the way to \(myPlane.currentLocation)!")
+        print("🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥 🔥")
+
+        return false
+    } else {
+        return true
+    }
     return true
 }
 

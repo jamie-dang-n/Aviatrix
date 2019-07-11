@@ -19,7 +19,7 @@ class Aviatrix {
     
     
     //saying who created this place and arline
-    var author = ""
+    var author : String
     init(myAuthor:String){
         
     author = myAuthor
@@ -34,13 +34,21 @@ class Aviatrix {
         running = true
         return running
     }
+    //figure out how to print the right refill gallons number!!!!!
+    func gallonsRefilled() -> Double {
+        let gallonsRefilled = (Double(maxFuel) - fuelLevel)
+        print(gallonsRefilled)
+        return gallonsRefilled
+    }
+    
     
     func refuel() -> Double {
         let gallonsNeeded = Double(maxFuel)-fuelLevel
         let data = AviatrixData()
         fuelCost += gallonsNeeded * data.fuelPrices[currentLocation]!
-        
         fuelLevel = 5000.0
+// figuring out the math
+//        print(gallonsNeeded)
         
         return gallonsNeeded
     }
